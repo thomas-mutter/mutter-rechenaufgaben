@@ -49,7 +49,7 @@ private static (int A, int B) GetOperatorsByRechnungtyp(Func<int, int, Rechnung>
 }
 ```
 
-## Rechnungsblässter generieren
+## Rechnungsblätter generieren
 Das Program basiert auf Dotnet-Core 3.1 und lässt sich einfach in einer Console oder direkt in der IDE starten.
 
 ```sh
@@ -64,4 +64,11 @@ Das Programm generiert nun 20 Json-Files mit je 100 Rechenaufgaben im Verzeichni
 Das Excel-Sheet dient als Vorlage und hat das Json-File aufgaben.json als Datasource eingebunden. Man kann nun einfach
 eines der generierten Json-Files entsprechend kopieren und im Excel-Sheet die Datenquelle aktualisieren, schon hat man ein
 neues Rechnungsblatt.
+
 **Achtung** zur Zeit funktioniert diese PowerQuery-Funktionalität zum Anbinden von Json-Files offenbar nur unter Windows.
+
+PowerQuery kann nur mit absoltuen Pfaden umgehen. Daher muss im Query unter Advanced der jeweilige Pfad entsprechend angepasst werden! Dies gilt für beide Datenquellen im Sheet.
+
+![Datasource](powerquery-datasource.png)
+
+Das Resultat sieht dann so aus wie im PDF-File im Repository: [Aufgaben.pdf](Aufgaben.pdf)
