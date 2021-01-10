@@ -28,6 +28,7 @@ namespace Rechenaufgaben
                         100
                         , GetPlusRechnung
                         , GetMinusRechnung
+                        , GetDivisionsRechnung
                         , GetMalrechnung);
                     await CreateAufgabenJson(aufgabenFile, file);
                 }
@@ -83,7 +84,7 @@ namespace Rechenaufgaben
             int a;
             int b;
 
-            if (factory == GetMalrechnung) {
+            if (factory == GetMalrechnung || factory == GetDivisionsRechnung) {
                 a = GetRandom(2, 10);
                 b = GetRandom(2, 12);
                 return (a, b);
@@ -112,6 +113,11 @@ namespace Rechenaufgaben
         public static Rechnung GetMinusRechnung(int a, int b)
         {
             return (a > b) ? new Rechnung(a, "-", b, a - b) : new Rechnung(b, "-", a, b - a);
+        }
+
+        public static Rechnung GetDivisionsRechnung(int a, int b)
+        {
+            return new Rechnung(a * b, ":", a, b);
         }
 
         static int GetRandom(int start, int end) {
